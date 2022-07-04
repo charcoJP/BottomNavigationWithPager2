@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import jp.charco.bottomnavigationwithpager2.databinding.FragmentNotificationsBinding
+import jp.charco.bottomnavigationwithpager2.ui.BottomNavigationFragmentDirections
 
 class NotificationsFragment : Fragment() {
 
@@ -33,6 +35,16 @@ class NotificationsFragment : Fragment() {
             textView.text = it
         }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.button.setOnClickListener {
+            findNavController().navigate(
+                BottomNavigationFragmentDirections.actionBottomNavigationFragmentToDetailFragment(1)
+            )
+        }
     }
 
     override fun onDestroyView() {

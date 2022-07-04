@@ -5,10 +5,29 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/bottomNavigationFragment">
 
-
     <fragment
         android:id="@+id/bottomNavigationFragment"
         android:name="jp.charco.bottomnavigationwithpager2.ui.BottomNavigationFragment"
         android:label="fragment_bottom_nav"
-        tools:layout="@layout/fragment_bottom_nav" />
+        tools:layout="@layout/fragment_bottom_nav">
+        <action
+            android:id="@+id/action_bottomNavigationFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="jp.charco.bottomnavigationwithpager2.ui.DetailFragment"
+        android:label="DetailFragment">
+
+        <argument
+            android:name="num"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_detailFragment_self"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
 </navigation>
