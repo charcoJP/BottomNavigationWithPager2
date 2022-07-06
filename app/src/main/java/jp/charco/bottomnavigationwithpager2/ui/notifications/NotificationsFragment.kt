@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import jp.charco.bottomnavigationwithpager2.databinding.FragmentNotificationsBinding
+import jp.charco.bottomnavigationwithpager2.ui.BottomNavContentFragment
 import jp.charco.bottomnavigationwithpager2.ui.BottomNavigationFragmentDirections
 import jp.charco.bottomnavigationwithpager2.ui.MyAdapter
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : BottomNavContentFragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!

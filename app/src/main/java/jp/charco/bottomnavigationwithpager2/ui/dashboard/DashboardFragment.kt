@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import jp.charco.bottomnavigationwithpager2.databinding.FragmentDashboardBinding
+import jp.charco.bottomnavigationwithpager2.ui.BottomNavContentFragment
 import jp.charco.bottomnavigationwithpager2.ui.MyAdapter
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : BottomNavContentFragment() {
 
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
