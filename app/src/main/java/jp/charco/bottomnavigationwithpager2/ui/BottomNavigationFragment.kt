@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -32,7 +33,11 @@ class BottomNavigationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.pager.adapter = BottomNavigationPagerAdapter(childFragmentManager, lifecycle)
+//        binding.pager.adapter = BottomNavigationPagerAdapter(requireActivity())
+        binding.pager.adapter =
+            BottomNavigationPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+
+//        binding.pager.adapter = BottomNavigationPagerAdapter(childFragmentManager, lifecycle)
         binding.pager.isUserInputEnabled = false
 
         binding.navView.setOnItemSelectedListener {
@@ -54,6 +59,8 @@ class BottomNavigationFragment : Fragment() {
 }
 
 class BottomNavigationPagerAdapter(
+//    activity: FragmentActivity
+//) : FragmentStateAdapter(activity) {
     fm: FragmentManager, lifecycle: Lifecycle
 ) : FragmentStateAdapter(fm, lifecycle) {
     override fun getItemCount(): Int {
